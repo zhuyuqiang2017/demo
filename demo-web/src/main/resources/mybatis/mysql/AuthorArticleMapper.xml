@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.selfhelp.data.mapper.AuthorArticleMapper">
+  <resultMap id="BaseResultMap" type="top.selfhelp.data.entity.AuthorArticle">
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="article_category" jdbcType="VARCHAR" property="articleCategory" />
+    <result column="article_category_url" jdbcType="VARCHAR" property="articleCategoryUrl" />
+    <result column="author_article_id" jdbcType="INTEGER" property="authorArticleId" />
+  </resultMap>
+  <insert id="insert" parameterType="top.selfhelp.data.entity.AuthorArticle">
+    insert into author_article (author_name, article_category, article_category_url, 
+      author_article_id)
+    values (#{authorName,jdbcType=VARCHAR}, #{articleCategory,jdbcType=VARCHAR}, #{articleCategoryUrl,jdbcType=VARCHAR}, 
+      #{authorArticleId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="top.selfhelp.data.entity.AuthorArticle">
+    insert into author_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="authorName != null">
+        author_name,
+      </if>
+      <if test="articleCategory != null">
+        article_category,
+      </if>
+      <if test="articleCategoryUrl != null">
+        article_category_url,
+      </if>
+      <if test="authorArticleId != null">
+        author_article_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="authorName != null">
+        #{authorName,jdbcType=VARCHAR},
+      </if>
+      <if test="articleCategory != null">
+        #{articleCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="articleCategoryUrl != null">
+        #{articleCategoryUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="authorArticleId != null">
+        #{authorArticleId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

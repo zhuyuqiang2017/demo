@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.selfhelp.data.mapper.AuthorDetailMapper">
+  <resultMap id="BaseResultMap" type="top.selfhelp.data.entity.AuthorDetail">
+    <id column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="author_desc" jdbcType="VARCHAR" property="authorDesc" />
+    <result column="author_tags" jdbcType="VARCHAR" property="authorTags" />
+    <result column="author_location" jdbcType="VARCHAR" property="authorLocation" />
+    <result column="access_number" jdbcType="INTEGER" property="accessNumber" />
+    <result column="original_umber" jdbcType="INTEGER" property="originalUmber" />
+    <result column="forward_number" jdbcType="INTEGER" property="forwardNumber" />
+    <result column="ranking" jdbcType="INTEGER" property="ranking" />
+    <result column="comment_number" jdbcType="INTEGER" property="commentNumber" />
+    <result column="praised_number" jdbcType="INTEGER" property="praisedNumber" />
+    <result column="fans_number" jdbcType="INTEGER" property="fansNumber" />
+    <result column="follow_number" jdbcType="INTEGER" property="followNumber" />
+    <result column="already_parser_article" jdbcType="INTEGER" property="alreadyParserArticle" />
+    <result column="is_processed" jdbcType="TINYINT" property="isProcessed" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    author_name, nick_name, author_desc, author_tags, author_location, access_number, 
+    original_umber, forward_number, ranking, comment_number, praised_number, fans_number, 
+    follow_number, already_parser_article, is_processed
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from author_detail
+    where author_name = #{authorName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from author_detail
+    where author_name = #{authorName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top.selfhelp.data.entity.AuthorDetail">
+    insert into author_detail (author_name, nick_name, author_desc, 
+      author_tags, author_location, access_number, 
+      original_umber, forward_number, ranking, 
+      comment_number, praised_number, fans_number, 
+      follow_number, already_parser_article, is_processed
+      )
+    values (#{authorName,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{authorDesc,jdbcType=VARCHAR}, 
+      #{authorTags,jdbcType=VARCHAR}, #{authorLocation,jdbcType=VARCHAR}, #{accessNumber,jdbcType=INTEGER}, 
+      #{originalUmber,jdbcType=INTEGER}, #{forwardNumber,jdbcType=INTEGER}, #{ranking,jdbcType=INTEGER}, 
+      #{commentNumber,jdbcType=INTEGER}, #{praisedNumber,jdbcType=INTEGER}, #{fansNumber,jdbcType=INTEGER}, 
+      #{followNumber,jdbcType=INTEGER}, #{alreadyParserArticle,jdbcType=INTEGER}, #{isProcessed,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top.selfhelp.data.entity.AuthorDetail">
+    insert into author_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="authorName != null">
+        author_name,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="authorDesc != null">
+        author_desc,
+      </if>
+      <if test="authorTags != null">
+        author_tags,
+      </if>
+      <if test="authorLocation != null">
+        author_location,
+      </if>
+      <if test="accessNumber != null">
+        access_number,
+      </if>
+      <if test="originalUmber != null">
+        original_umber,
+      </if>
+      <if test="forwardNumber != null">
+        forward_number,
+      </if>
+      <if test="ranking != null">
+        ranking,
+      </if>
+      <if test="commentNumber != null">
+        comment_number,
+      </if>
+      <if test="praisedNumber != null">
+        praised_number,
+      </if>
+      <if test="fansNumber != null">
+        fans_number,
+      </if>
+      <if test="followNumber != null">
+        follow_number,
+      </if>
+      <if test="alreadyParserArticle != null">
+        already_parser_article,
+      </if>
+      <if test="isProcessed != null">
+        is_processed,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="authorName != null">
+        #{authorName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="authorDesc != null">
+        #{authorDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="authorTags != null">
+        #{authorTags,jdbcType=VARCHAR},
+      </if>
+      <if test="authorLocation != null">
+        #{authorLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="accessNumber != null">
+        #{accessNumber,jdbcType=INTEGER},
+      </if>
+      <if test="originalUmber != null">
+        #{originalUmber,jdbcType=INTEGER},
+      </if>
+      <if test="forwardNumber != null">
+        #{forwardNumber,jdbcType=INTEGER},
+      </if>
+      <if test="ranking != null">
+        #{ranking,jdbcType=INTEGER},
+      </if>
+      <if test="commentNumber != null">
+        #{commentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="praisedNumber != null">
+        #{praisedNumber,jdbcType=INTEGER},
+      </if>
+      <if test="fansNumber != null">
+        #{fansNumber,jdbcType=INTEGER},
+      </if>
+      <if test="followNumber != null">
+        #{followNumber,jdbcType=INTEGER},
+      </if>
+      <if test="alreadyParserArticle != null">
+        #{alreadyParserArticle,jdbcType=INTEGER},
+      </if>
+      <if test="isProcessed != null">
+        #{isProcessed,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.selfhelp.data.entity.AuthorDetail">
+    update author_detail
+    <set>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="authorDesc != null">
+        author_desc = #{authorDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="authorTags != null">
+        author_tags = #{authorTags,jdbcType=VARCHAR},
+      </if>
+      <if test="authorLocation != null">
+        author_location = #{authorLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="accessNumber != null">
+        access_number = #{accessNumber,jdbcType=INTEGER},
+      </if>
+      <if test="originalUmber != null">
+        original_umber = #{originalUmber,jdbcType=INTEGER},
+      </if>
+      <if test="forwardNumber != null">
+        forward_number = #{forwardNumber,jdbcType=INTEGER},
+      </if>
+      <if test="ranking != null">
+        ranking = #{ranking,jdbcType=INTEGER},
+      </if>
+      <if test="commentNumber != null">
+        comment_number = #{commentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="praisedNumber != null">
+        praised_number = #{praisedNumber,jdbcType=INTEGER},
+      </if>
+      <if test="fansNumber != null">
+        fans_number = #{fansNumber,jdbcType=INTEGER},
+      </if>
+      <if test="followNumber != null">
+        follow_number = #{followNumber,jdbcType=INTEGER},
+      </if>
+      <if test="alreadyParserArticle != null">
+        already_parser_article = #{alreadyParserArticle,jdbcType=INTEGER},
+      </if>
+      <if test="isProcessed != null">
+        is_processed = #{isProcessed,jdbcType=TINYINT},
+      </if>
+    </set>
+    where author_name = #{authorName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.selfhelp.data.entity.AuthorDetail">
+    update author_detail
+    set nick_name = #{nickName,jdbcType=VARCHAR},
+      author_desc = #{authorDesc,jdbcType=VARCHAR},
+      author_tags = #{authorTags,jdbcType=VARCHAR},
+      author_location = #{authorLocation,jdbcType=VARCHAR},
+      access_number = #{accessNumber,jdbcType=INTEGER},
+      original_umber = #{originalUmber,jdbcType=INTEGER},
+      forward_number = #{forwardNumber,jdbcType=INTEGER},
+      ranking = #{ranking,jdbcType=INTEGER},
+      comment_number = #{commentNumber,jdbcType=INTEGER},
+      praised_number = #{praisedNumber,jdbcType=INTEGER},
+      fans_number = #{fansNumber,jdbcType=INTEGER},
+      follow_number = #{followNumber,jdbcType=INTEGER},
+      already_parser_article = #{alreadyParserArticle,jdbcType=INTEGER},
+      is_processed = #{isProcessed,jdbcType=TINYINT}
+    where author_name = #{authorName,jdbcType=VARCHAR}
+  </update>
+</mapper>

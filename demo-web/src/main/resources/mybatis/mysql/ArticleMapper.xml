@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.selfhelp.data.mapper.ArticleMapper">
+  <resultMap id="BaseResultMap" type="top.selfhelp.data.entity.Article">
+    <id column="article_url" jdbcType="VARCHAR" property="articleUrl" />
+    <result column="article_id" jdbcType="VARCHAR" property="articleId" />
+    <result column="article_author" jdbcType="VARCHAR" property="articleAuthor" />
+    <result column="article_is_repeat" jdbcType="VARCHAR" property="articleIsRepeat" />
+    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="article_time" jdbcType="VARCHAR" property="articleTime" />
+    <result column="article_read_number" jdbcType="INTEGER" property="articleReadNumber" />
+    <result column="article_like_number" jdbcType="INTEGER" property="articleLikeNumber" />
+    <result column="article_comment_number" jdbcType="INTEGER" property="articleCommentNumber" />
+    <result column="article_tags" jdbcType="VARCHAR" property="articleTags" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    article_url, article_id, article_author, article_is_repeat, article_title, article_time, 
+    article_read_number, article_like_number, article_comment_number, article_tags
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from article
+    where article_url = #{articleUrl,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from article
+    where article_url = #{articleUrl,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top.selfhelp.data.entity.Article">
+    insert into article (article_url, article_id, article_author, 
+      article_is_repeat, article_title, article_time, 
+      article_read_number, article_like_number, article_comment_number, 
+      article_tags)
+    values (#{articleUrl,jdbcType=VARCHAR}, #{articleId,jdbcType=VARCHAR}, #{articleAuthor,jdbcType=VARCHAR}, 
+      #{articleIsRepeat,jdbcType=VARCHAR}, #{articleTitle,jdbcType=VARCHAR}, #{articleTime,jdbcType=VARCHAR}, 
+      #{articleReadNumber,jdbcType=INTEGER}, #{articleLikeNumber,jdbcType=INTEGER}, #{articleCommentNumber,jdbcType=INTEGER}, 
+      #{articleTags,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.selfhelp.data.entity.Article">
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleUrl != null">
+        article_url,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="articleAuthor != null">
+        article_author,
+      </if>
+      <if test="articleIsRepeat != null">
+        article_is_repeat,
+      </if>
+      <if test="articleTitle != null">
+        article_title,
+      </if>
+      <if test="articleTime != null">
+        article_time,
+      </if>
+      <if test="articleReadNumber != null">
+        article_read_number,
+      </if>
+      <if test="articleLikeNumber != null">
+        article_like_number,
+      </if>
+      <if test="articleCommentNumber != null">
+        article_comment_number,
+      </if>
+      <if test="articleTags != null">
+        article_tags,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleUrl != null">
+        #{articleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAuthor != null">
+        #{articleAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="articleIsRepeat != null">
+        #{articleIsRepeat,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTitle != null">
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTime != null">
+        #{articleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="articleReadNumber != null">
+        #{articleReadNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleLikeNumber != null">
+        #{articleLikeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleCommentNumber != null">
+        #{articleCommentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleTags != null">
+        #{articleTags,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.selfhelp.data.entity.Article">
+    update article
+    <set>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAuthor != null">
+        article_author = #{articleAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="articleIsRepeat != null">
+        article_is_repeat = #{articleIsRepeat,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTitle != null">
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTime != null">
+        article_time = #{articleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="articleReadNumber != null">
+        article_read_number = #{articleReadNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleLikeNumber != null">
+        article_like_number = #{articleLikeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleCommentNumber != null">
+        article_comment_number = #{articleCommentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleTags != null">
+        article_tags = #{articleTags,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where article_url = #{articleUrl,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.selfhelp.data.entity.Article">
+    update article
+    set article_id = #{articleId,jdbcType=VARCHAR},
+      article_author = #{articleAuthor,jdbcType=VARCHAR},
+      article_is_repeat = #{articleIsRepeat,jdbcType=VARCHAR},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_time = #{articleTime,jdbcType=VARCHAR},
+      article_read_number = #{articleReadNumber,jdbcType=INTEGER},
+      article_like_number = #{articleLikeNumber,jdbcType=INTEGER},
+      article_comment_number = #{articleCommentNumber,jdbcType=INTEGER},
+      article_tags = #{articleTags,jdbcType=VARCHAR}
+    where article_url = #{articleUrl,jdbcType=VARCHAR}
+  </update>
+</mapper>
