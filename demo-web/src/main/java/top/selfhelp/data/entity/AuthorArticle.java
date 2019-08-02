@@ -1,5 +1,8 @@
 package top.selfhelp.data.entity;
 
+/**
+ * @author zhuyuqiang2015@outlook.com
+ */
 public class AuthorArticle {
     private String authorName;
 
