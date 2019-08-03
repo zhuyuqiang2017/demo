@@ -15,6 +15,7 @@
         <module>demo-data-structure</module>
         <module>demo-scheduler-thread-pool</module>
         <module>demo-web</module>
+        <module>demo-pagehelper</module>
     </modules>
 
     <properties>
