@@ -37,12 +37,13 @@
 
     </dependencies>
 
-
-    <build>
+    <!--<build>
         <plugins>
-            <!--Compiler-->
+            &lt;!&ndash;Compiler&ndash;&gt;
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin}</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -59,6 +60,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
 </project>

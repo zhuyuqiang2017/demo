@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>demo</artifactId>
         <groupId>top.self-help</groupId>
+        <artifactId>demo</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -44,6 +44,12 @@
         </dependency>
 
         <dependency>
+            <groupId>top.self-help</groupId>
+            <artifactId>demo-pagehelper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
         </dependency>
@@ -79,6 +85,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin}</version>
                 <configuration>
                     <skipTests>true</skipTests>
                 </configuration>
@@ -87,6 +94,7 @@
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${mybatis.generator.plugin}</version>
                 <configuration>
                     <configurationFile>src/main/resources/mybatis-generator-config.xml</configurationFile>
                     <overwrite>true</overwrite>
