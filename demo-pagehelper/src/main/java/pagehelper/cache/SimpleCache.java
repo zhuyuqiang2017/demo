@@ -24,10 +24,10 @@
 
 package pagehelper.cache;
 
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.cache.decorators.FifoCache;
 import org.apache.ibatis.cache.impl.PerpetualCache;
 import org.apache.ibatis.mapping.CacheBuilder;
+import pagehelper.util.StringUtil;
 
 import java.util.Properties;
 

@@ -24,7 +24,7 @@
 
 package pagehelper.dialect.replace;
 
-import com.github.pagehelper.dialect.ReplaceSql;
+import pagehelper.dialect.ReplaceSql;
 
 /**
  * 简单处理 with(nolock)

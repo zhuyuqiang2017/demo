@@ -24,9 +24,9 @@
 
 package pagehelper.dialect.rowbounds;
 
-import com.github.pagehelper.dialect.AbstractRowBoundsDialect;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.dialect.AbstractRowBoundsDialect;
 
 /**
  * mysql 基于 RowBounds 的分页

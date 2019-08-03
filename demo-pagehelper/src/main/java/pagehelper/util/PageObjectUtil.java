@@ -24,10 +24,10 @@
 
 package pagehelper.util;
 
-import com.github.pagehelper.IPage;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageException;
 import org.apache.ibatis.reflection.MetaObject;
+import pagehelper.IPage;
+import pagehelper.Page;
+import pagehelper.PageException;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;

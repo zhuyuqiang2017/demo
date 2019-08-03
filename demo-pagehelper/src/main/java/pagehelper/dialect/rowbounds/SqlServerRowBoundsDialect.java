@@ -24,16 +24,16 @@
 
 package pagehelper.dialect.rowbounds;
 
-import com.github.pagehelper.dialect.AbstractRowBoundsDialect;
-import com.github.pagehelper.dialect.ReplaceSql;
-import com.github.pagehelper.dialect.replace.RegexWithNolockReplaceSql;
-import com.github.pagehelper.dialect.replace.SimpleWithNolockReplaceSql;
-import com.github.pagehelper.parser.SqlServerParser;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.dialect.AbstractRowBoundsDialect;
+import pagehelper.dialect.ReplaceSql;
+import pagehelper.dialect.replace.RegexWithNolockReplaceSql;
+import pagehelper.dialect.replace.SimpleWithNolockReplaceSql;
+import pagehelper.parser.SqlServerParser;
+import pagehelper.util.StringUtil;
 
 import java.util.Properties;
 

@@ -24,20 +24,20 @@
 
 package pagehelper.dialect.helper;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.cache.Cache;
-import com.github.pagehelper.cache.CacheFactory;
-import com.github.pagehelper.dialect.AbstractHelperDialect;
-import com.github.pagehelper.dialect.ReplaceSql;
-import com.github.pagehelper.dialect.replace.RegexWithNolockReplaceSql;
-import com.github.pagehelper.dialect.replace.SimpleWithNolockReplaceSql;
-import com.github.pagehelper.parser.OrderByParser;
-import com.github.pagehelper.parser.SqlServerParser;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.Page;
+import pagehelper.cache.Cache;
+import pagehelper.cache.CacheFactory;
+import pagehelper.dialect.AbstractHelperDialect;
+import pagehelper.dialect.ReplaceSql;
+import pagehelper.dialect.replace.RegexWithNolockReplaceSql;
+import pagehelper.dialect.replace.SimpleWithNolockReplaceSql;
+import pagehelper.parser.OrderByParser;
+import pagehelper.parser.SqlServerParser;
+import pagehelper.util.StringUtil;
 
 import java.util.Map;
 import java.util.Properties;
@@ -49,7 +49,7 @@ public class SqlServerDialect extends AbstractHelperDialect {
     protected SqlServerParser pageSql = new SqlServerParser();
     protected Cache<String, String> CACHE_COUNTSQL;
     protected Cache<String, String> CACHE_PAGESQL;
-    protected ReplaceSql            replaceSql;
+    protected ReplaceSql replaceSql;
 
     @Override
     public String getCountSql(MappedStatement ms, BoundSql boundSql, Object parameterObject, RowBounds rowBounds, CacheKey countKey) {

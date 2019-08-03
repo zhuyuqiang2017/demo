@@ -24,17 +24,17 @@
 
 package pagehelper;
 
-import com.github.pagehelper.dialect.AbstractHelperDialect;
-import com.github.pagehelper.page.PageAutoDialect;
-import com.github.pagehelper.page.PageMethod;
-import com.github.pagehelper.page.PageParams;
-import com.github.pagehelper.parser.CountSqlParser;
-import com.github.pagehelper.util.MSUtils;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.dialect.AbstractHelperDialect;
+import pagehelper.page.PageAutoDialect;
+import pagehelper.page.PageMethod;
+import pagehelper.page.PageParams;
+import pagehelper.parser.CountSqlParser;
+import pagehelper.util.MSUtils;
+import pagehelper.util.StringUtil;
 
 import java.util.List;
 import java.util.Properties;

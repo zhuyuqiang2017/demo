@@ -24,18 +24,21 @@
 
 package pagehelper.dialect.helper;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.dialect.AbstractHelperDialect;
-import com.github.pagehelper.util.MetaObjectUtil;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.ParameterMapping;
 import org.apache.ibatis.reflection.MetaObject;
+import pagehelper.Page;
+import pagehelper.dialect.AbstractHelperDialect;
+import pagehelper.util.MetaObjectUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static pagehelper.Constant.PAGEPARAMETER_FIRST;
+import static pagehelper.Constant.PAGEPARAMETER_SECOND;
 
 /**
  * @author liuzh

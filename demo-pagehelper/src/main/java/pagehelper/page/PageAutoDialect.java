@@ -24,12 +24,12 @@
 
 package pagehelper.page;
 
-import com.github.pagehelper.Dialect;
-import com.github.pagehelper.PageException;
-import com.github.pagehelper.dialect.AbstractHelperDialect;
-import com.github.pagehelper.dialect.helper.*;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.mapping.MappedStatement;
+import pagehelper.Dialect;
+import pagehelper.PageException;
+import pagehelper.dialect.AbstractHelperDialect;
+import pagehelper.dialect.helper.*;
+import pagehelper.util.StringUtil;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

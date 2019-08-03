@@ -24,19 +24,19 @@
 
 package pagehelper.dialect;
 
-import com.github.pagehelper.Constant;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageRowBounds;
-import com.github.pagehelper.parser.OrderByParser;
-import com.github.pagehelper.util.MetaObjectUtil;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.ParameterMapping;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.Constant;
+import pagehelper.Page;
+import pagehelper.PageHelper;
+import pagehelper.PageRowBounds;
+import pagehelper.parser.OrderByParser;
+import pagehelper.util.MetaObjectUtil;
+import pagehelper.util.StringUtil;
 
 import java.util.*;
 

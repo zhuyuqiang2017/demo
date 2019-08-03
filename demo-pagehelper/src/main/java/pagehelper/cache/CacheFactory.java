@@ -24,8 +24,8 @@
 
 package pagehelper.cache;
 
-import com.github.pagehelper.PageException;
-import com.github.pagehelper.util.StringUtil;
+import pagehelper.PageException;
+import pagehelper.util.StringUtil;
 
 import java.lang.reflect.Constructor;
 import java.util.Properties;

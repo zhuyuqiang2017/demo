@@ -24,8 +24,8 @@
 
 package pagehelper.cache;
 
-import com.github.pagehelper.util.StringUtil;
 import com.google.common.cache.CacheBuilder;
+import pagehelper.util.StringUtil;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;

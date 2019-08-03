@@ -24,9 +24,9 @@
 
 package pagehelper.page;
 
-import com.github.pagehelper.ISelect;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.util.PageObjectUtil;
+import pagehelper.ISelect;
+import pagehelper.Page;
+import pagehelper.util.PageObjectUtil;
 
 import java.util.Properties;
 

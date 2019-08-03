@@ -24,11 +24,11 @@
 
 package pagehelper.dialect;
 
-import com.github.pagehelper.PageRowBounds;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.PageRowBounds;
 
 import java.util.List;
 import java.util.Properties;

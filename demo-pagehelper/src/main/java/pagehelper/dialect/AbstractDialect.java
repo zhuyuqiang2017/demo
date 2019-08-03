@@ -24,12 +24,12 @@
 
 package pagehelper.dialect;
 
-import com.github.pagehelper.Dialect;
-import com.github.pagehelper.parser.CountSqlParser;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.Dialect;
+import pagehelper.parser.CountSqlParser;
 
 /**
  * 基于 CountSqlParser 的智能 Count 查询

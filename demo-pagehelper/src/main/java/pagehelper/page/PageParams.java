@@ -24,13 +24,13 @@
 
 package pagehelper.page;
 
-import com.github.pagehelper.IPage;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageRowBounds;
-import com.github.pagehelper.util.PageObjectUtil;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.IPage;
+import pagehelper.Page;
+import pagehelper.PageHelper;
+import pagehelper.PageRowBounds;
+import pagehelper.util.PageObjectUtil;
+import pagehelper.util.StringUtil;
 
 import java.util.Properties;
 

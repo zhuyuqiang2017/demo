@@ -24,7 +24,8 @@
 
 package pagehelper.dialect.replace;
 
-import com.github.pagehelper.dialect.ReplaceSql;
+
+import pagehelper.dialect.ReplaceSql;
 
 /**
  * 正则处理 with(nolock)，转换为一个 table_PAGEWITHNOLOCK

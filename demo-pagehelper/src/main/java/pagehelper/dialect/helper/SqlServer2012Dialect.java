@@ -24,10 +24,10 @@
 
 package pagehelper.dialect.helper;
 
-import com.github.pagehelper.Page;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
+import pagehelper.Page;
 
 import java.util.Map;
 

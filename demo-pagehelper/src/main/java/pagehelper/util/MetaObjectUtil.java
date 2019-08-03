@@ -24,8 +24,8 @@
 
 package pagehelper.util;
 
-import com.github.pagehelper.PageException;
 import org.apache.ibatis.reflection.MetaObject;
+import pagehelper.PageException;
 
 import java.lang.reflect.Method;
 

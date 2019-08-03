@@ -24,7 +24,6 @@
 
 package pagehelper.util;
 
-import com.github.pagehelper.PageException;
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.ReflectorFactory;
@@ -32,6 +31,7 @@ import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
 import org.apache.ibatis.reflection.factory.ObjectFactory;
 import org.apache.ibatis.reflection.wrapper.DefaultObjectWrapperFactory;
 import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
+import pagehelper.PageException;
 
 /**
  * 反射带缓存，提高反射性能

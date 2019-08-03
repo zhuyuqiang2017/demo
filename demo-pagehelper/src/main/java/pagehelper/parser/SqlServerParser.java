@@ -24,7 +24,6 @@
 
 package pagehelper.parser;
 
-import com.github.pagehelper.PageException;
 import net.sf.jsqlparser.expression.Alias;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
@@ -34,6 +33,7 @@ import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.schema.Table;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.statement.select.*;
+import pagehelper.PageException;
 
 import java.util.*;
 

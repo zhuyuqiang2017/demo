@@ -24,12 +24,12 @@
 
 package pagehelper.parser;
 
-import com.github.pagehelper.PageException;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.statement.select.*;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
+import pagehelper.PageException;
 
 import java.util.List;
 

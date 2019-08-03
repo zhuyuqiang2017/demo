@@ -24,17 +24,18 @@
 
 package pagehelper;
 
-import com.github.pagehelper.cache.Cache;
-import com.github.pagehelper.cache.CacheFactory;
-import com.github.pagehelper.util.ExecutorUtil;
-import com.github.pagehelper.util.MSUtils;
-import com.github.pagehelper.util.StringUtil;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
+import pagehelper.cache.Cache;
+import pagehelper.cache.CacheFactory;
+import pagehelper.util.ExecutorUtil;
+import pagehelper.util.MSUtils;
+import pagehelper.util.StringUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
