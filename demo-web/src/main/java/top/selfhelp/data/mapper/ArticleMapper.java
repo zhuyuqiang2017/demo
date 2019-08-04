@@ -1,12 +1,12 @@
 package top.selfhelp.data.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import top.selfhelp.data.entity.Article;
 
 /**
  * @author zhuyuqiang2015@outlook.com
  */
-@Mapper
+@Repository
 public interface ArticleMapper {
     int deleteByPrimaryKey(String articleUrl);
 
@@ -15,6 +15,8 @@ public interface ArticleMapper {
     int insertSelective(Article record);
 
     Article selectByPrimaryKey(String articleUrl);
+
+    Article selectRandomOne();
 
     int updateByPrimaryKeySelective(Article record);
 

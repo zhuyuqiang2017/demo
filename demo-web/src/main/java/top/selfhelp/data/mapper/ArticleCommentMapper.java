@@ -1,12 +1,12 @@
 package top.selfhelp.data.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import top.selfhelp.data.entity.ArticleCommentKey;
 
 /**
  * @author zhuyuqiang2015@outlook.com
  */
-@Mapper
+@Repository
 public interface ArticleCommentMapper {
 
     int deleteByPrimaryKey(ArticleCommentKey key);

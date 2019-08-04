@@ -1,6 +1,7 @@
 package top.selfhelp;
 
 import com.alibaba.fastjson.JSONObject;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -13,6 +14,7 @@ import top.selfhelp.common.starter.AbstractApplication;
  */
 
 @SpringBootApplication
+@MapperScan(basePackages = {"top.selfhelp.data.mapper"})
 public class WebApplication extends AbstractApplication {
 
     private static Logger logger = LoggerFactory.getLogger(WebApplication.class);

@@ -1,12 +1,12 @@
 package top.selfhelp.data.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import top.selfhelp.data.entity.AuthorDetail;
 
 /**
  * @author zhuyuqiang2015@outlook.com
  */
-@Mapper
+@Repository
 public interface AuthorDetailMapper {
     int deleteByPrimaryKey(String authorName);
 

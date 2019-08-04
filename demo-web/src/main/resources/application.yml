@@ -4,3 +4,12 @@ server:
 spring:
   application:
     name: web-application-demo
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/csdn
+    username: root
+    password: Zyq@2019
+    name: csdn
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations:
+    - mybatis/mysql/*.xml

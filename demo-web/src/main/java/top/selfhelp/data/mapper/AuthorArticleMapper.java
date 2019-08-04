@@ -1,12 +1,12 @@
 package top.selfhelp.data.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import top.selfhelp.data.entity.AuthorArticle;
 
 /**
  * @author zhuyuqiang2015@outlook.com
  */
-@Mapper
+@Repository
 public interface AuthorArticleMapper {
     int insert(AuthorArticle record);
 
