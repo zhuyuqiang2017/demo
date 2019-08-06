@@ -5,7 +5,7 @@ spring:
   application:
     name: web-application-demo
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/csdn
+    url: jdbc:mysql://47.101.149.150:3306/csdn
     username: root
     password: Zyq@2019
     name: csdn
@@ -22,6 +22,7 @@ logging:
   file: demo-web
   level:
     root: INFO
+    top.selfhelp.data.mapper: DEBUG
 
   config: classpath:main-logback.xml
 

@@ -1,6 +1,7 @@
 package top.selfhelp.service.article;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.selfhelp.common.result.CommonResult;
@@ -10,6 +11,7 @@ import top.selfhelp.data.mapper.ArticleMapper;
 import top.selfhelp.interfaces.article.ArticleInterface;
 import top.selfhelp.interfaces.result.ArticleResult;
 
+import static top.selfhelp.interfaces.constant.MessageCode.QUERY_ARTICLE_ERROR;
 import static top.selfhelp.interfaces.constant.MessageCode.SUCCESS_CODE;
 
 /**
@@ -23,13 +25,19 @@ public class ArticleInterfaceImpl extends AbstractService implements ArticleInte
 
     @Override
     public CommonResult<ArticleResult> getRandomOneArticle() {
-        Article article = articleMapper.selectRandomOne();
-        ArticleResult articleResult = new ArticleResult();
-        BeanUtils.copyProperties(article,articleResult);
         CommonResult<ArticleResult> result = new CommonResult<>();
-        result.setCode(SUCCESS_CODE);
-        result.setMessage(getMessageByCode(SUCCESS_CODE));
-        result.setData(articleResult);
+        try {
+            Article article = articleMapper.selectRandomOne();
+            ArticleResult articleResult = new ArticleResult();
+            BeanUtils.copyProperties(article,articleResult);
+            result.setCode(SUCCESS_CODE);
+            result.setMessage(getMessageByCode(SUCCESS_CODE));
+            result.setData(articleResult);
+        } catch (BeansException e) {
+            logger.error("查询博文异常",e);
+            result.setCode(QUERY_ARTICLE_ERROR);
+            result.setMessage(getMessageByCode(QUERY_ARTICLE_ERROR));
+        }
         return result;
     }
 }

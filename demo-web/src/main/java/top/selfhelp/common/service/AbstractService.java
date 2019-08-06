@@ -14,7 +14,7 @@ public abstract class AbstractService {
     @Autowired
     private MessageSource messageSource;
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     protected String getMessageByCode(@NotNull String code){
         String message = "";

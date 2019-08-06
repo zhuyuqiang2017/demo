@@ -8,5 +8,9 @@ import top.selfhelp.interfaces.result.ArticleResult;
  */
 public interface ArticleInterface {
 
+    /**
+     * 随机获取数据库中的一篇博文
+     * @return 博文记录
+     */
     CommonResult<ArticleResult> getRandomOneArticle();
 }

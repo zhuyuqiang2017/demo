@@ -21,6 +21,7 @@ public class ArticleController extends AbstractController {
 
     @RequestMapping(value = "/random/one", method = {RequestMethod.GET, RequestMethod.POST})
     public CommonResult<ArticleResult> getRandomOneArticle() {
+        logger.info("随机获取一篇博文的信息");
         return articleInterface.getRandomOneArticle();
     }
 }

@@ -13,7 +13,7 @@
         <module>demo-hello</module>
         <module>demo-dynamic-proxy</module>
         <module>demo-data-structure</module>
-        <module>demo-scheduler-thread-pool</module>
+        <module>demo-scheduler-thread</module>
         <module>demo-web</module>
         <module>demo-pagehelper</module>
     </modules>
