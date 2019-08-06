@@ -10,6 +10,18 @@ spring:
     password: Zyq@2019
     name: csdn
     driver-class-name: com.mysql.cj.jdbc.Driver
+  messages:
+    basename: message_zh_CN
+
 mybatis:
   mapper-locations:
     - mybatis/mysql/*.xml
+
+logging:
+  path: ./logs
+  file: demo-web
+  level:
+    root: INFO
+
+  config: classpath:main-logback.xml
+
