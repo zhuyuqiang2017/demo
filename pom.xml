@@ -16,6 +16,7 @@
         <module>demo-scheduler-thread</module>
         <module>demo-web</module>
         <module>demo-pagehelper</module>
+        <module>demo-concurrent-limitation</module>
     </modules>
 
     <properties>
