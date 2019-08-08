@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import top.selfhelp.RateLimitServiceImpl;
+import top.selfhelp.service.RateLimitServiceImpl;
 import top.selfhelp.annotations.RateLimit;
 import top.selfhelp.exception.LimitationException;
 

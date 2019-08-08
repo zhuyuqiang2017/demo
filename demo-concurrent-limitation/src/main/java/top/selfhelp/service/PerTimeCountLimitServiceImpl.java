@@ -1,4 +1,4 @@
-package top.selfhelp;
+package top.selfhelp.service;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;

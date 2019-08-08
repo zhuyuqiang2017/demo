@@ -1,4 +1,4 @@
-package top.selfhelp;
+package top.selfhelp.service;
 
 import top.selfhelp.interfaces.CountLimitService;
 

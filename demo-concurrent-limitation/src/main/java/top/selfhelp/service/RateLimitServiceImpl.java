@@ -1,4 +1,4 @@
-package top.selfhelp;
+package top.selfhelp.service;
 
 import com.google.common.util.concurrent.RateLimiter;
 import top.selfhelp.interfaces.RateLimitService;
