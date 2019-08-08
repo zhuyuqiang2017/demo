@@ -24,6 +24,6 @@ logging:
     root: INFO
     top.selfhelp.data.mapper: DEBUG
     top.selfhelp.service.article.ArticleInterfaceImpl: DEBUG
-
+    top.selfhelp.aop.CountLimitAspect: DEBUG
   config: classpath:main-logback.xml
 

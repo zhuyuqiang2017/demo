@@ -59,10 +59,11 @@
             <artifactId>mybatis-generator-maven-plugin</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.github.pagehelper</groupId>-->
-            <!--<artifactId>pagehelper-spring-boot-starter</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>top.self-help</groupId>
+            <artifactId>demo-concurrent-limitation</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
     </dependencies>
 

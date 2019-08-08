@@ -36,7 +36,10 @@ public class CountLimitServiceImpl {
         if(timeout<=0){
             semaphore.acquire();
         }else{
-            semaphore.tryAcquire(timeout,timeUnit);
+            boolean permit = semaphore.tryAcquire(timeout,timeUnit);
+            if(!permit){
+                throw new InterruptedException("获取令牌超时");
+            }
         }
     }
 
