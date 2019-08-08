@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import top.selfhelp.annotations.CountLimit;
+import top.selfhelp.annotations.PerTimeCountLimit;
+import top.selfhelp.annotations.RateLimit;
 import top.selfhelp.common.controller.AbstractController;
 import top.selfhelp.common.param.CommonPageParam;
 import top.selfhelp.common.result.CommonPageResult;
@@ -42,5 +44,20 @@ public class ArticleController extends AbstractController {
             e.printStackTrace();
         }
         return articleInterface.queryArticleByPage(pageParam);
+    }
+
+//    @CountLimit(name = "/article/limit/test",count = 2)
+//    @RateLimit(name = "/article/limit/test",permitsPerSecond = 1,warmupMode = false)
+    @PerTimeCountLimit(name = "/article/limit/test",duration = 1,timeUnit = TimeUnit.SECONDS,permits = 2)
+    @RequestMapping(value = "/limit/test")
+    public CommonResult limit(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        CommonResult<String> result = new CommonResult();
+        result.setData("请求成功");
+        return result;
     }
 }

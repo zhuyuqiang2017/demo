@@ -14,12 +14,14 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class PerTimeCountLimitServiceImpl implements PerTimeCountLimitService {
 
-    private LoadingCache<Long, AtomicLong> counter = null;
+    private volatile LoadingCache<Long, AtomicLong> counter = null;
 
 
     private long permits = 50L;
 
     private TimeUnit unit;
+
+    private volatile AtomicLong numberChecker = new AtomicLong(0);
 
     public PerTimeCountLimitServiceImpl(long permits, long duration, TimeUnit unit) {
         counter = CacheBuilder.newBuilder()
@@ -27,7 +29,7 @@ public class PerTimeCountLimitServiceImpl implements PerTimeCountLimitService {
                 .build(new CacheLoader<Long, AtomicLong>() {
                     @Override
                     public AtomicLong load(Long seconds) throws Exception {
-                        return new AtomicLong(0);
+                        return numberChecker;
                     }
                 });
         this.permits = permits;
@@ -36,6 +38,7 @@ public class PerTimeCountLimitServiceImpl implements PerTimeCountLimitService {
 
     @Override
     public boolean isPermitted(long time) throws ExecutionException {
+        System.out.println("当前数量："+counter.get(getValidTime(time)).get());
         return counter.get(getValidTime(time)).getAndIncrement() <= permits;
     }
 

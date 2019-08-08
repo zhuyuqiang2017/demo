@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8091
 
 spring:
   application:
@@ -25,5 +25,7 @@ logging:
     top.selfhelp.data.mapper: DEBUG
     top.selfhelp.service.article.ArticleInterfaceImpl: DEBUG
     top.selfhelp.aop.CountLimitAspect: DEBUG
+    top.selfhelp.aop.RateLimitAspect: DEBUG
+    top.selfhelp.aop.PerTimeCountLimitAspect: DEBUG
   config: classpath:main-logback.xml
 
