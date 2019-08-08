@@ -1,12 +1,14 @@
 package top.selfhelp;
 
+import top.selfhelp.interfaces.CountLimitService;
+
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author zhuyuqiang2015@outlook.com
  */
-public class CountLimitServiceImpl {
+public class CountLimitServiceImpl implements CountLimitService {
 
     private Semaphore semaphore = null;
 
@@ -32,6 +34,7 @@ public class CountLimitServiceImpl {
         this.timeUnit = timeUnit;
     }
 
+    @Override
     public void acquire() throws InterruptedException {
         if(timeout<=0){
             semaphore.acquire();
@@ -43,6 +46,7 @@ public class CountLimitServiceImpl {
         }
     }
 
+    @Override
     public void release(){
         semaphore.release();
     }

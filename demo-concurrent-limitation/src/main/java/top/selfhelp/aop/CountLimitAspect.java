@@ -35,6 +35,8 @@ public class CountLimitAspect {
     @Around(value = "countLimitPointCut()")
     public Object permittedCheck(ProceedingJoinPoint joinPoint) throws LimitationException {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        CountLimitServiceImpl countLimitService = null;
+        Object result;
         try {
             Method targetMethod =
                     joinPoint.getTarget().getClass().getMethod(signature.getName(), signature.getParameterTypes());
@@ -42,24 +44,27 @@ public class CountLimitAspect {
             String name = StringUtils.isEmpty(countLimit.name())?targetMethod.getName():countLimit.name();
             logger.debug("当前限流参数：名称：{}，允许最大并行数量：{}，最大等待时间：{}，时间单位：{}",
                     name,countLimit.count(),countLimit.timeout(),countLimit.unit());
-            CountLimitServiceImpl countLimitService = countLimitMapper
+            countLimitService = countLimitMapper
                     .get(name);
             //并发数量控制器不存在，新建并发控制器
             if(countLimitService == null){
                 countLimitService = new CountLimitServiceImpl(countLimit.count(),false,countLimit.timeout(),countLimit.unit());
+                //添加并发控制器到内存中，供下次获取
+                countLimitMapper.put(name,countLimitService);
             }
             long start = System.currentTimeMillis();
             logger.debug("当前请求线程id：{},尝试获取请求令牌时间：{}",Thread.currentThread().getId(),start);
             countLimitService.acquire();
             logger.debug("当前请求线程id：{}，请求令牌等待时间：{}",Thread.currentThread().getId(),(System.currentTimeMillis()-start));
-            //添加并发控制器到内存中，供下次获取
-            countLimitMapper.put(name,countLimitService);
-            Object result = joinPoint.proceed(joinPoint.getArgs());
-            countLimitService.release();
-            return result;
+            result = joinPoint.proceed(joinPoint.getArgs());
         }  catch (Throwable throwable) {
             logger.error("并发数量控制异常",throwable);
             throw new LimitationException(throwable);
+        }finally {
+            if(countLimitService != null){
+                countLimitService.release();
+            }
         }
+        return result;
     }
 }

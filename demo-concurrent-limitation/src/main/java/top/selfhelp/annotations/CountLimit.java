@@ -11,11 +11,23 @@ import java.util.concurrent.TimeUnit;
 @Documented
 public @interface CountLimit {
 
+    /**
+     * 限制器名称
+     */
     String name() default "";
 
+    /**
+     * 允许最大的并发数量
+     */
     int count() default 10;
 
+    /**
+     * 当前线程最大等待时间
+     */
     long timeout() default 60;
 
+    /**
+     * 线程等待时间的单位
+     */
     TimeUnit unit() default TimeUnit.SECONDS;
 }

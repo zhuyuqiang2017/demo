@@ -3,6 +3,7 @@ package top.selfhelp;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import top.selfhelp.interfaces.PerTimeCountLimitService;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -11,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * @author zhuyuqiang2015@outlook.com
  */
-public class PerTimeCountLimitServiceImpl {
+public class PerTimeCountLimitServiceImpl implements PerTimeCountLimitService {
 
     private LoadingCache<Long, AtomicLong> counter = null;
 
@@ -33,6 +34,7 @@ public class PerTimeCountLimitServiceImpl {
         this.unit = unit;
     }
 
+    @Override
     public boolean isPermitted(long time) throws ExecutionException {
         return counter.get(getValidTime(time)).getAndIncrement() <= permits;
     }

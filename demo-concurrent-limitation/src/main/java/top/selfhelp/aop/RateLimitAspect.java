@@ -53,13 +53,13 @@ public class RateLimitAspect {
                     rateLimitService = new RateLimitServiceImpl(rateLimit.permitsPerSecond(),rateLimit.timeout(),
                             rateLimit.timeoutUnit());
                 }
+                //添加并发控制器到内存中，供下次获取
+                rateLimitMapper.put(name,rateLimitService);
             }
             long start = System.currentTimeMillis();
             logger.debug("当前请求线程id：{},尝试获取请求令牌时间：{}",Thread.currentThread().getId(),start);
             rateLimitService.acquire();
             logger.debug("当前请求线程id：{}，请求令牌等待时间：{}",Thread.currentThread().getId(),(System.currentTimeMillis()-start));
-            //添加并发控制器到内存中，供下次获取
-            rateLimitMapper.put(name,rateLimitService);
             return joinPoint.proceed(joinPoint.getArgs());
         }  catch (Throwable throwable) {
             logger.error("并发数量控制异常",throwable);

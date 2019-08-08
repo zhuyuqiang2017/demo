@@ -1,13 +1,14 @@
 package top.selfhelp;
 
 import com.google.common.util.concurrent.RateLimiter;
+import top.selfhelp.interfaces.RateLimitService;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author zhuyuqiang2015@outlook.com
  */
-public class RateLimitServiceImpl {
+public class RateLimitServiceImpl implements RateLimitService {
 
     private RateLimiter rateLimiter = null;
 
@@ -33,6 +34,7 @@ public class RateLimitServiceImpl {
         this.timeUnit = timeUnit;
     }
 
+    @Override
     public double acquire() throws InterruptedException {
         long start = System.currentTimeMillis();
         if(timeout<=0){
@@ -46,6 +48,7 @@ public class RateLimitServiceImpl {
         }
     }
 
+    @Override
     public void setRate(double permitsPerSecond){
         rateLimiter.setRate(permitsPerSecond);
     }
