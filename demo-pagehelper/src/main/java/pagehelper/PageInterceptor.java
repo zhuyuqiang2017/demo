@@ -63,7 +63,7 @@ public class PageInterceptor implements Interceptor {
     private volatile Dialect dialect;
     private String countSuffix = "_COUNT";
     protected Cache<String, MappedStatement> msCountMap = null;
-    private String default_dialect_class = "com.github.pagehelper.PageHelper";
+    private String default_dialect_class = "pagehelper.PageHelper";
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {

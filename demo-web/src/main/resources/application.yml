@@ -23,6 +23,7 @@ logging:
   level:
     root: INFO
     top.selfhelp.data.mapper: DEBUG
+    top.selfhelp.service.article.ArticleInterfaceImpl: DEBUG
 
   config: classpath:main-logback.xml
 

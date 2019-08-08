@@ -3,6 +3,8 @@ package top.selfhelp.data.mapper;
 import org.springframework.stereotype.Repository;
 import top.selfhelp.data.entity.Article;
 
+import java.util.List;
+
 /**
  * @author zhuyuqiang2015@outlook.com
  */
@@ -21,4 +23,6 @@ public interface ArticleMapper {
     int updateByPrimaryKeySelective(Article record);
 
     int updateByPrimaryKey(Article record);
+
+    List<Article> pageArticle();
 }

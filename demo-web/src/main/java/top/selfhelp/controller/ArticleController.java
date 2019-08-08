@@ -1,13 +1,19 @@
 package top.selfhelp.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import top.selfhelp.common.controller.AbstractController;
+import top.selfhelp.common.param.CommonPageParam;
+import top.selfhelp.common.result.CommonPageResult;
 import top.selfhelp.common.result.CommonResult;
 import top.selfhelp.interfaces.article.ArticleInterface;
 import top.selfhelp.interfaces.result.ArticleResult;
+
+import java.util.List;
 
 /**
  * @author zhuyuqiang2015@outlook.com
@@ -23,5 +29,11 @@ public class ArticleController extends AbstractController {
     public CommonResult<ArticleResult> getRandomOneArticle() {
         logger.info("随机获取一篇博文的信息");
         return articleInterface.getRandomOneArticle();
+    }
+
+    @RequestMapping(value = "/query/page", method = {RequestMethod.GET, RequestMethod.POST})
+    public CommonResult<CommonPageResult<ArticleResult>> queryArticleByPage(@RequestBody CommonPageParam pageParam) {
+        logger.info("分页查询博文的信息，查询参数：{}", JSONObject.toJSONString(pageParam));
+        return articleInterface.queryArticleByPage(pageParam);
     }
 }
