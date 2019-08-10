@@ -8,10 +8,10 @@ import redis.clients.jedis.JedisPool;
 public class RedisTool {
 
     private static RedisTool redisTool = null;
-    private final JedisPool redisPool;
+    private JedisPool redisPool;
 
     {
-        redisTool = new RedisTool(null);
+        redisTool = new RedisTool(new JedisPool());
     }
 
     private RedisTool(JedisPool jedisPool){
@@ -20,5 +20,9 @@ public class RedisTool {
 
     public static RedisTool get(){
         return redisTool;
+    }
+
+    public void setRedisPool(JedisPool pool){
+        this.redisPool = pool;
     }
 }
