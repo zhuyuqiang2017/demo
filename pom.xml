@@ -17,6 +17,7 @@
         <module>demo-web</module>
         <module>demo-pagehelper</module>
         <module>demo-concurrent-limitation</module>
+        <module>demo-mybatis</module>
     </modules>
 
     <properties>

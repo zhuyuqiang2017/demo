@@ -48,7 +48,7 @@ public class ArticleController extends AbstractController {
 
 //    @CountLimit(name = "/article/limit/test",count = 2)
 //    @RateLimit(name = "/article/limit/test",permitsPerSecond = 1,warmupMode = false)
-    @PerTimeCountLimit(name = "/article/limit/test",duration = 1,timeUnit = TimeUnit.SECONDS,permits = 2)
+//    @PerTimeCountLimit(name = "/article/limit/test",duration = 1,timeUnit = TimeUnit.SECONDS,permits = 2)
     @RequestMapping(value = "/limit/test")
     public CommonResult limit(){
         try {
