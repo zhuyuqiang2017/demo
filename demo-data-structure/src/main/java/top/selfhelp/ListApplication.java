@@ -45,7 +45,7 @@ public class ListApplication {
     }
 
     private static Node generatorNodeList(int nodeCount){
-        List<Node> nodes = new ArrayList<>();
+        List<Node> nodes = new ArrayList<Node>();
         Node head = null;
         Node currentNode = null;
         for(int i = 0;i<nodeCount;i++){
