@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ByteCode {
+public class ByteCodeString {
 
     @Test
     public void printTest(){
@@ -139,9 +139,47 @@ public class ByteCode {
 
     @Test
     public void restoreIp(){
-        String source = "25525511135";
+        String source = "10511135";
+        List<String> ips = new ArrayList<String>();
+        findAndStoreIp(source,"",0,0,ips);
+        System.out.println(ips);
+    }
 
+    private void findAndStoreIp(String source,String currentStr,int level,int offset,List<String> ips){
+        if(level==3){
+            if(isValidString(source.substring(offset))){
+                currentStr = currentStr+"."+source.substring(offset);
+                ips.add(currentStr);
+            }
+            return;
+        }
+        String oldStr = currentStr;
+        for(int i = 1;i<=3;i++){
+            if(offset+i>source.length()){
+                return;
+            }
+            String tmp = source.substring(offset,offset+i);
+            if(isValidString(tmp)){
+                if(currentStr.equals("")){
+                    currentStr = tmp;
+                }else{
+                    currentStr = currentStr+"."+tmp;
+                }
+                findAndStoreIp(source,currentStr,level+1,offset+i,ips);
+                currentStr = oldStr;
+            }
+        }
+    }
 
+    private boolean isValidString(String source){
+        try {
+            if(Integer.parseInt(source)>255 || Integer.parseInt(source)<0||source.length()>3||(source.startsWith("0")&&source.length()!=1)){
+                return false;
+            }
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     String findShortestString(String[] strings){
