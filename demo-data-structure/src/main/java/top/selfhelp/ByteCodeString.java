@@ -18,33 +18,37 @@ public class ByteCodeString {
 
     @Test
     public void findUnRepeatString(){
-        String source = "pwwkew";
+        String source = "pwwkewbca";
         int startIndex = 0;
         int endIndex = 0;
         List<Character> byteList = new ArrayList<Character>();
         List<String> childString = new ArrayList<String>();
-        while(endIndex<source.length()){
-            if(!byteList.contains(source.charAt(endIndex))){
+        while(endIndex<=source.length()){
+            if(endIndex == source.length() ){
+                childString.add(source.substring(startIndex));
+            }else if(!byteList.contains(source.charAt(endIndex))){
                 byteList.add(source.charAt(endIndex));
-                endIndex++;
             }else{
                 childString.add(source.substring(startIndex,endIndex));
-                source = source.substring(endIndex);
+                byteList.clear();
+                byteList.add(source.charAt(endIndex));
+                startIndex = endIndex;
             }
+            endIndex++;
         }
-        childString.add(source);
+//        childString.add(source);
         System.out.println(JSON.toJSONString(childString));
     }
 
     @Test
     public void findLongestCommonPrefix(){
-//        String[] sources = {"flower", "flow", "flight"};
-        String[] sources = {"dog","racecar","car"};
+        String[] sources = {"flower", "flow", "flight"};
+//        String[] sources = {"dog","racecar","car"};
         String longestPrefix = findShortestString(sources);
         int j=0,i=0,res = 0;
         exit:
         for (; j < longestPrefix.length(); j++) {
-            i = i==3?0:i;
+            i = i==sources.length?0:i;
             for (; i < sources.length; i++) {
                 if(longestPrefix.charAt(j)!=sources[i].charAt(j)){
                     if(j == 0){
@@ -183,7 +187,6 @@ public class ByteCodeString {
     }
 
     String findShortestString(String[] strings){
-        List<String> list = Arrays.asList(strings);
         String shortString = null ;
         for(int i = 0;i<strings.length;i++){
             if(shortString==null){

@@ -87,7 +87,7 @@ public class ByteCodeList {
         // 1 2 3 4 5 6 7 8 --> 8 7 1 2 3 4 5 6  target = 6
         // 1 2 3 4 5 6 7 8 --> 8 1 2 3 4 5 6 7  target = 7
         //中值大于最右边值时，左边有序;中值小于右边时，右边有序
-        int target = 2;
+        int target = 6;
         int[] source = {4,5,6,7,0,1,2};
         int startIndex = 0;
         int endIndex = source.length-1;
@@ -98,11 +98,16 @@ public class ByteCodeList {
                 targetIndex = temp;
                 break;
             }
-            if(endIndex==startIndex){
+            if(endIndex-startIndex<=1){
+                if(source[endIndex] == target){
+                    targetIndex = endIndex;
+                }else if (source[startIndex] == target){
+                    targetIndex = startIndex;
+                }
                 break;
             }
             if(source[temp]>source[endIndex]){
-                if(target<source[temp]&&source[startIndex]<target){
+                if(target<source[temp]&&source[startIndex]<=target){
                     targetIndex = findInOrder(source,startIndex,temp,target);
                     break;
                 }else{
@@ -110,7 +115,7 @@ public class ByteCodeList {
                 }
             }
             if(source[temp]<source[endIndex]){
-                if(target>source[temp]&&target<source[endIndex]){
+                if(target>source[temp]&&target<=source[endIndex]){
                     targetIndex = findInOrder(source,temp,endIndex,target);
                     break;
                 }else{
@@ -127,8 +132,12 @@ public class ByteCodeList {
             if (source[temp] == target) {
                 return temp;
             }
-            if(endIndex==startIndex){
-                break;
+            if(endIndex-startIndex<=1){
+                if(source[endIndex] == target){
+                    return endIndex;
+                }else if (source[startIndex] == target){
+                    return startIndex;
+                }
             }
             if (target < source[temp]) {
                 endIndex = temp;
