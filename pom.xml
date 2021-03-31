@@ -31,7 +31,7 @@
         <maven.surefire.plugin>2.19.1</maven.surefire.plugin>
         <maven.compiler.plugin>3.7.0</maven.compiler.plugin>
         <jedis>3.1.0</jedis>
-        <google.guava>27.0.1-jre</google.guava>
+        <google.guava>29.0-jre</google.guava>
     </properties>
 
     <dependencyManagement>
